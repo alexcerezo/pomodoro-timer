@@ -16,6 +16,20 @@ body {
     align-items: center;
 }
 
+    body::-webkit-scrollbar {
+        width: 15px;               /* width of the entire scrollbar */
+      }
+      
+      body::-webkit-scrollbar-track {
+        background: transparent;        /* color of the tracking area */
+      }
+      
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(172, 137, 99);    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid rgb(238, 238, 236);;  /* creates padding around scroll thumb */
+      }
+
 .all {
     display: flex;
     flex-direction: column;
@@ -195,19 +209,7 @@ img {
         overflow-y: scroll;
     }
 
-    body::-webkit-scrollbar {
-        width: 15px;               /* width of the entire scrollbar */
-      }
-      
-      body::-webkit-scrollbar-track {
-        background: transparent;        /* color of the tracking area */
-      }
-      
-      body::-webkit-scrollbar-thumb {
-        background-color: rgb(172, 137, 99);    /* color of the scroll thumb */
-        border-radius: 20px;       /* roundness of the scroll thumb */
-        border: 3px solid rgb(238, 238, 236);;  /* creates padding around scroll thumb */
-      }
+
       
     .main {
         flex-direction: column;

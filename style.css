@@ -1,0 +1,228 @@
+@font-face {
+    font-family: nomark;
+    src: url(Nomark.otf);
+}
+
+html {
+    background: rgb(238, 238, 236);
+    font-size: clamp(1rem, 6vw, 2.3rem);
+}
+
+body {
+    font-family: nomark;
+    color: rgb(172, 137, 99);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    justify-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.clock-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:40%;
+}
+
+.config-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:40%;
+}
+
+.clock-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clock-menu div {
+    padding: 10px;
+}
+
+.clock {
+    display: flex;
+    flex-direction: row;
+}
+
+.dots {
+    width: 0.4ch;
+}
+
+.pomodoro {
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: stay;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.pomodoro:hover {
+    transform: translateY(-5px);
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: stay;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+.break {
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: null;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.break:hover {
+    transform: translateY(-5px);
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: stay;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.reset {
+    transition: transform 250ms;
+}
+
+.reset:hover {
+    transform: translateY(-5px);
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: stay;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.alternate {
+    transition: transform 250ms;
+}
+
+.alternate:hover {
+    transform: translateY(-5px);
+    transition: transform 250ms;
+    animation-delay: 250ms;
+    animation-name: stay;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+h2 {
+    font-size: 5rem;
+    padding: 0;
+    margin: 0;;
+    width: 2ch;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.icon {
+    color: rgb(172, 137, 99);
+    text-decoration: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.icons:hover > .icon {
+    opacity: 0.3;
+    transition: 0.3s;
+}
+
+.icons:hover > .icon:hover {
+    opacity: 1;
+}
+
+.config-container h3{
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+}
+
+img {
+    height: 8.75rem;
+    margin: 0;
+}
+
+@keyframes stay {
+    0% {
+        transform: translateY(-5px);
+    } 
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    html {
+    font-size: clamp(1rem, 6vw, 1.7rem);
+    }
+
+    body {
+        overflow-y: scroll;
+    }
+
+    body::-webkit-scrollbar {
+        width: 15px;               /* width of the entire scrollbar */
+      }
+      
+      body::-webkit-scrollbar-track {
+        background: transparent;        /* color of the tracking area */
+      }
+      
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(172, 137, 99);    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid rgb(238, 238, 236);;  /* creates padding around scroll thumb */
+      }
+      
+    .main {
+        flex-direction: column;
+    }
+
+    .all {
+        justify-content: start;
+    }
+    
+    .clock-container{
+        width:100%;
+    }
+    
+    .config-container {
+        width:100%;
+
+    }
+}

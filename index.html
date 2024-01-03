@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <title>Temporizador de estudio</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/fefecd0a89.js" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="all">
+            <div class="title">
+                <h1>Temporizador de estudio <span class="fa fa-clock" aria-hidden="true"></span></h1>
+            </div>
+            <div class="main">
+                <div class="clock-container">
+                    <div class="clock-menu">
+                        <div id="pomodoro" class="pomodoro">
+                            <h3 onclick="choosePomodoro()">Pomodoro</h3>
+                        </div>
+                        <div id="break" class="break">
+                            <h3 onclick="chooseBreak()">Descanso</h3>
+                        </div>
+                    </div>
+                    <div class="clock">
+                        <h2 id="minutes">25</h2><h2 class="dots">:</h2><h2 id="seconds">00</h2>
+                    </div>
+                    <div class="clock-menu">
+                        <div>
+                            <h3 id="alternate" class="alternate" onclick="alternate()">Comenzar</h3>
+                        </div>
+                        <div>
+                            <h3 class="reset" onclick="reset()">Reiniciar</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="config-container">
+                    <h3>Mis redes sociales</h3>
+                    <img src="photo.png">
+                    <div class="social">
+                        <div class="icons">
+                            <a class="icon" href="https://www.linkedin.com/in/alexcerezocontreras" target="_blank"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://github.com/alexcerezo" target="_blank"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                            <a class="icon" href="https://www.instagram.com/alexcerezx" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

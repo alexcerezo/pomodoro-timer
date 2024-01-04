@@ -184,6 +184,14 @@ img {
     margin: 0;
 }
 
+#clock{
+    display: none;
+    }
+
+#alarm{
+    display: none;
+    }
+
 @keyframes stay {
     0% {
         transform: translateY(-5px);

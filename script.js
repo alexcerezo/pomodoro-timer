@@ -27,6 +27,7 @@ function choosePomodoro() {
     document.getElementById("clock").currentTime = 0;
     help = 0;
     help2 = 0;
+    help3=0;
     minutes = 25;
     seconds = 0;
     document.getElementById('alternate').innerHTML = 'Comenzar';
@@ -43,6 +44,7 @@ function choosePomodoro() {
     document.getElementById("clock").currentTime = 0;
     help = 0;
     help2 = 1;
+    help3=0;
     minutes = 5;
     seconds = 0;
     document.getElementById('alternate').innerHTML = 'Comenzar';
@@ -71,6 +73,7 @@ function reset() {
     } else {
         pauseTimer();
         help = 0;
+        help3=0;
         minutes = 5;
         seconds = 0;
         document.getElementById('alternate').innerHTML = 'Comenzar';

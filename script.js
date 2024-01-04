@@ -1,5 +1,5 @@
-let minutes = 25;
-let seconds = 0;
+let minutes = 0;
+let seconds = 10;
 let help = 0;
 let intervalId;
 let help2 = 0;

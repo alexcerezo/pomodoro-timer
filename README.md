@@ -2,6 +2,9 @@
 
 Este proyecto es un contador Pomodoro implementado con HTML, CSS y JavaScript. El objetivo principal de esta herramienta es mejorar la productividad y el enfoque durante sesiones de estudio o trabajo mediante la técnica Pomodoro.
 
+![image](https://github.com/alexcerezo/pomodoro-timer/assets/92682715/00f52519-4ea2-4d73-bbb4-93daf53858b5)
+
+
 ## 🕰️ Técnica Pomodoro
 
 La técnica Pomodoro es un método de gestión del tiempo desarrollado para maximizar la productividad y la concentración. Consiste en trabajar en intervalos cortos de tiempo (generalmente 25 minutos), conocidos como "pomodoros", seguidos de breves descansos. Este ciclo se repite para mantener un equilibrio entre la productividad y el descanso.

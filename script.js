@@ -48,7 +48,7 @@ function choosePomodoro() {
     minutes = 5;
     seconds = 0;
     document.getElementById('alternate').innerHTML = 'Comenzar';
-    document.getElementById('minutes').innerHTML = `${minutes}`;
+    document.getElementById('minutes').innerHTML = `0${minutes}`;
     document.getElementById('seconds').innerHTML = `0${seconds}`;
   
     document.getElementById("pomodoro").style.animationName = "null";

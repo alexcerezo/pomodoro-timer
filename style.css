@@ -257,8 +257,13 @@ img {
         justify-self: center;
         align-self: center;
         width: 12rem;
-        height: 4rem;
         font-size: 2rem;
     }
     
+}
+
+@media screen and (max-width: 450px) {
+    .spotify {
+        display: none;
+    }
 }

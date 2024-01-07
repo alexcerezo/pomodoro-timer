@@ -76,7 +76,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 60%;
+    width: 100%;
 }
 
 .minutes {
@@ -91,7 +91,7 @@ body::-webkit-scrollbar {
 
 .dots {
     width: 6%;
-    text-align: right;
+    text-align: center;
 }
 
 .pomodoro {

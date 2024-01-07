@@ -75,10 +75,23 @@ body::-webkit-scrollbar {
 .clock {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.minutes {
+    width: 47%;
+    text-align: right;
+}
+
+.seconds {
+    width: 47%;
+    text-align: left;
 }
 
 .dots {
-    width: 0.4ch;
+    width: 6%;
+    text-align: right;
 }
 
 .pomodoro {
@@ -93,7 +106,6 @@ body::-webkit-scrollbar {
     transform: translateY(-5px);
     transition: transform 250ms;
 }
-
 
 .break {
     transition: transform 250ms;
@@ -137,8 +149,7 @@ body::-webkit-scrollbar {
 h2 {
     font-size: 5rem;
     padding: 0;
-    margin: 0;;
-    width: 2ch;
+    margin: 0;
 }
 
 .icons {

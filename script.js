@@ -2,6 +2,7 @@ let minutos = 25;
 let segundos = 0;
 let estado = "pomodoro";
 let playing = false;
+let comenzar = true;
 let intervalo;
 
 function cargar() {
@@ -60,8 +61,9 @@ function actualizarReloj() {
 }
 
 function alternate() {
-    if (document.getElementById("alternate").innerHTML == "Comenzar") { 
+    if (comenzar) { 
         document.getElementById("clock").play();
+        comenzar = false;
     }
     if (playing) {
         pararTemporizador();
@@ -103,6 +105,7 @@ function choosePomodoro() {
     actualizarReloj();
     document.getElementById("pomodoro").style.animationName = "stay";
     document.getElementById("break").style.animationName = "null";
+    comenzar = true;
 }
 
 function chooseBreak() {
@@ -117,4 +120,5 @@ function chooseBreak() {
     actualizarReloj();
     document.getElementById("pomodoro").style.animationName = "null";
     document.getElementById("break").style.animationName = "stay";
+    comenzar = true;
 }

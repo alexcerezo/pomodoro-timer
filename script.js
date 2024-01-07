@@ -1,142 +1,120 @@
-let minutes = 25;
-let seconds = 0;
-let help = 0;
-let intervalId;
-let help2 = 0;
-let help3 = 0;
+let minutos = 25;
+let segundos = 0;
+let estado = "pomodoro";
+let playing = false;
+let intervalo;
+
+function cargar() {
+    restarSegundo();
+    restarMinuto();
+    verificarCero();
+    actualizarReloj();
+    if (playing) {
+        document.getElementById("clock").play();
+    }
+}
+
+function restarSegundo() {
+    let onlyone = true;
+    if (segundos > 0 && onlyone) {
+        segundos--;
+        onlyone = false;
+    }
+}
+
+function restarMinuto() { 
+    if (segundos <= 0 && minutos > 0) {
+        segundos = 59;
+        minutos--;
+    }
+}
+
+function verificarCero() {
+    if (segundos <= 0 && minutos <= 0 && estado == "pomodoro") {
+        pararTemporizador();
+        chooseBreak();
+        estado = "descanso";
+        document.getElementById("alarm").play();
+    } else if (segundos <= 0 && minutos <= 0 && estado == "descanso") {
+        pararTemporizador();
+        choosePomodoro();
+        estado = "pomodoro";
+        document.getElementById("alarm").play();
+    }
+}
+
+function actualizarReloj() {
+    let txtSegundos = segundos;
+    let txtMinutos = minutos;
+
+    if (segundos < 10) {
+        txtSegundos = "0" + segundos;
+    }
+
+    if (minutos < 10) {
+        txtMinutos = "0" + minutos;
+    }
+
+    document.getElementById("minutes").innerHTML = txtMinutos;
+    document.getElementById("seconds").innerHTML = txtSegundos;
+}
 
 function alternate() {
-  if (help % 2 == 0) {
-    startTimer();
-    document.getElementById('alternate').innerHTML = 'Pausar';
-    document.getElementById("clock").pause();
-    document.getElementById("clock").currentTime = 0;
-    help++;
-  } else {
-    pauseTimer();
-    help++;
-    document.getElementById('alternate').innerHTML = 'Seguir';
-    document.getElementById("clock").pause();
-    document.getElementById("clock").currentTime = 0;
+    if (document.getElementById("alternate").innerHTML == "Comenzar") { 
+        document.getElementById("clock").play();
+    }
+    if (playing) {
+        pararTemporizador();
+    } else {
+        empezarTemporizador();
+    }
+}
+
+function empezarTemporizador() {
+    clearInterval(intervalo);
+    intervalo = setInterval(cargar, 1000);
+    playing = true;
+    document.getElementById("alternate").innerHTML = "Pausar";
+}
+
+function pararTemporizador() {
+    clearInterval(intervalo);
+    playing = false;
+    document.getElementById("alternate").innerHTML = "Seguir";
+}
+
+function reset() {
+    if (estado == "pomodoro") {
+        choosePomodoro();
+    } else {
+        chooseBreak();
     }
 }
 
 function choosePomodoro() {
-    pauseTimer();
+    pararTemporizador();
+    segundos = 0;
+    minutos = 25;
+    estado = "pomodoro";
+    document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();
     document.getElementById("clock").currentTime = 0;
-    help = 0;
-    help2 = 0;
-    help3=0;
-    minutes = 25;
-    seconds = 0;
-    document.getElementById('alternate').innerHTML = 'Comenzar';
-    document.getElementById('minutes').innerHTML = `${minutes}`;
-    document.getElementById('seconds').innerHTML = `0${seconds}`;
-  
+    document.getElementById("alarm").currentTime = 0;
+    actualizarReloj();
     document.getElementById("pomodoro").style.animationName = "stay";
     document.getElementById("break").style.animationName = "null";
-  }
-  
-  function chooseBreak() {
-    pauseTimer();
+}
+
+function chooseBreak() {
+    pararTemporizador();
+    segundos = 0;
+    minutos = 5;
+    estado = "descanso";
+    document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();
     document.getElementById("clock").currentTime = 0;
-    help = 0;
-    help2 = 1;
-    help3=0;
-    minutes = 5;
-    seconds = 0;
-    document.getElementById('alternate').innerHTML = 'Comenzar';
-    document.getElementById('minutes').innerHTML = `0${minutes}`;
-    document.getElementById('seconds').innerHTML = `0${seconds}`;
-  
+    document.getElementById("alarm").currentTime = 0;
+    actualizarReloj();
     document.getElementById("pomodoro").style.animationName = "null";
     document.getElementById("break").style.animationName = "stay";
-
-  }
-  
-
-function reset() {
-    if (help2 == 0) {
-        pauseTimer();
-        help=0;
-        help3=0;
-        minutes = 25;
-        seconds = 0;
-        document.getElementById('alternate').innerHTML = 'Comenzar';
-        document.getElementById('minutes').innerHTML = `${minutes}`;
-        document.getElementById('seconds').innerHTML = `0${seconds}`;
-        document.getElementById("clock").pause();
-        document.getElementById("clock").currentTime = 0;
-
-    } else {
-        pauseTimer();
-        help = 0;
-        help3=0;
-        minutes = 5;
-        seconds = 0;
-        document.getElementById('alternate').innerHTML = 'Comenzar';
-        document.getElementById('minutes').innerHTML = `0${minutes}`;
-        document.getElementById('seconds').innerHTML = `0${seconds}`;
-        document.getElementById("clock").pause();
-        document.getElementById("clock").currentTime = 0;
-    }
-}
-
-function load() {
-  let secondsElement = document.getElementById('seconds');
-  let minutesElement = document.getElementById('minutes');
-
-  let txtSeconds;
-  let txtMinutes;
-
-  if (seconds < 0 && minutes > 0) {
-    seconds = 59;
-    minutes--;
-  }
-
-  if(help3 == 0 && seconds <= 0 && minutes <= 0) {
-    document.getElementById("clock").pause();
-    document.getElementById("alarm").play();
-    document.getElementById("clock").currentTime = 0;
-    help3++;
-  }
-
-  if (seconds < 0 && minutes < 0) {
-    seconds = 0;
-    minutes = 0;
-  }
-
-  if (seconds < 10) {
-    txtSeconds = `0${seconds}`;
-  } else {
-    txtSeconds = `${seconds}`;
-  }
-
-  if (minutes < 10) {
-    txtMinutes = `0${minutes}`;
-  } else {
-    txtMinutes = `${minutes}`;
-  }
-
-  secondsElement.innerHTML = txtSeconds;
-  minutesElement.innerHTML = txtMinutes;
-  if (!(seconds <= 0 && minutes <= 0)) {
-    seconds--;
-    var clock = document.getElementById("clock");
-    clock.play();
-  }
-}
-
-function pauseTimer() {
-  if (intervalId) {
-    clearInterval(intervalId);
-    intervalId = null;
-  }
-}
-
-function startTimer() {
-  clearInterval(intervalId);
-  intervalId = setInterval(load, 1000);
 }

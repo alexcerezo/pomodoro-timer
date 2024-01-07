@@ -92,10 +92,6 @@ body::-webkit-scrollbar {
 .pomodoro:hover {
     transform: translateY(-5px);
     transition: transform 250ms;
-    animation-delay: 250ms;
-    animation-name: stay;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
 }
 
 
@@ -110,10 +106,6 @@ body::-webkit-scrollbar {
 .break:hover {
     transform: translateY(-5px);
     transition: transform 250ms;
-    animation-delay: 250ms;
-    animation-name: stay;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
 }
 
 .reset {

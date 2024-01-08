@@ -3,14 +3,19 @@
     src: url(Nomark.otf);
 }
 
+:root {
+    --main-bg-color: rgb(238, 238, 236);
+    --main-letter-color: rgb(172, 137, 99);
+  }
+
 html {
-    background: rgb(238, 238, 236);
+    background: var(--main-bg-color);
     font-size: clamp(1rem, 6vw, 2rem);
 }
 
 body {
     font-family: nomark;
-    color: rgb(172, 137, 99);
+    color: var(--main-letter-color);
 }
 
 body::-webkit-scrollbar {
@@ -18,13 +23,13 @@ body::-webkit-scrollbar {
   }
   
   body::-webkit-scrollbar-track {
-    background: rgb(238, 238, 236);        /* color of the tracking area */
+    background: var(--main-bg-color);        /* color of the tracking area */
   }
   
   body::-webkit-scrollbar-thumb {
-    background-color: rgb(172, 137, 99);    /* color of the scroll thumb */
+    background-color: var(--main-letter-color);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid rgb(238, 238, 236);  /* creates padding around scroll thumb */
+    border: 3px solid var(--main-bg-color);  /* creates padding around scroll thumb */
   }
 
 .all {
@@ -160,7 +165,7 @@ h2 {
 }
 
 .icon {
-    color: rgb(172, 137, 99);
+    color: var(--main-letter-color);
     text-decoration: none;
     padding-left: 1rem;
     padding-right: 1rem;

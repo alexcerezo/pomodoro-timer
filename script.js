@@ -1,5 +1,5 @@
-let minutos = 25;
-let segundos = 0;
+let minutos = 0;
+let segundos = 10;
 let estado = "pomodoro";
 let playing = false;
 let comenzar = true;
@@ -32,16 +32,15 @@ function restarMinuto() {
 
 function verificarCero() {
     if (segundos <= 0 && minutos <= 0 && estado == "pomodoro") {
-        pararTemporizador();
         chooseBreak();
         estado = "descanso";
         document.getElementById("alarm").play();
     } else if (segundos <= 0 && minutos <= 0 && estado == "descanso") {
-        pararTemporizador();
         choosePomodoro();
         estado = "pomodoro";
         document.getElementById("alarm").play();
     }
+    empezarTemporizador();
 }
 
 function actualizarReloj() {
@@ -95,8 +94,8 @@ function reset() {
 
 function choosePomodoro() {
     pararTemporizador();
-    segundos = 0;
-    minutos = 25;
+    segundos = 10;
+    minutos = 0;
     estado = "pomodoro";
     document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();
@@ -110,8 +109,8 @@ function choosePomodoro() {
 
 function chooseBreak() {
     pararTemporizador();
-    segundos = 0;
-    minutos = 5;
+    segundos = 5;
+    minutos = 0;
     estado = "descanso";
     document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();

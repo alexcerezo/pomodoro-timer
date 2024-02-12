@@ -1,5 +1,5 @@
-let minutos = 0;
-let segundos = 10;
+let minutos = 25;
+let segundos = 0;
 let estado = "pomodoro";
 let playing = false;
 let comenzar = true;
@@ -94,8 +94,8 @@ function reset() {
 
 function choosePomodoro() {
     pararTemporizador();
-    segundos = 10;
-    minutos = 0;
+    segundos = 0;
+    minutos = 25;
     estado = "pomodoro";
     document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();
@@ -109,8 +109,8 @@ function choosePomodoro() {
 
 function chooseBreak() {
     pararTemporizador();
-    segundos = 5;
-    minutos = 0;
+    segundos = 0;
+    minutos = 5;
     estado = "descanso";
     document.getElementById("alternate").innerHTML = "Comenzar";
     document.getElementById("clock").pause();
